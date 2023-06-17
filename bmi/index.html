@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 0px;
+      }
+
+      .container {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1f3d5c;
+      }
+
+      .calc {
+        background-color: white;
+        padding: 30px;
+        border: 1px solid;
+        border-radius: 7px;
+        min-width: 350px;
+        min-height: 350px;
+      }
+
+      .heading {
+        width: 100%;
+        color: white;
+        background-color: #1f3d5c;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h3,
+      input,
+      label {
+        margin-bottom: 15px;
+      }
+
+      .submit {
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        background-color: #1f3d5c;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #1f3d5c;
+        box-shadow: 0 0 5px #1f3d5c;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+    </style>
+
+   
+  </head>
+  <body>
+    <div class="container">
+      <div class="calc">
+        <h2 class="heading">BMI Calculator</h2>
+        <label class="weight">Enter Weight ( kg )</label><br>
+        <input type="number" id="weiInput" /><br>
+        <label class="height">Enter Height ( m )</label><br>
+        <input type="number" id="heiInput" /><br />
+        <button class="submit" type="submit" id="subbtn">Submit</button>
+      </div>
+    </div>
+     <script>
+      const submit = document.getElementById('subbtn');
+      submit.addEventListener("click", function (event) {
+        event.preventDefault();
+        const weight = document.getElementById("weiInput").value;
+        const height = document.getElementById("heiInput").value;
+
+        if(!weight || !height){
+            alert("enter all details");
+            return;
+        }
+
+        const bmi = (weight / (height * height)).toFixed(2);
+        alert(`Your Body Mass Index (BMI): ${bmi}`);
+      });
+    </script>
+  </body>
+</html>
