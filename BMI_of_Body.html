@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            width: 100%;
+            background-color: #ffe6a2;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            border: 10px solid #ffb905;
+            width: 50%;
+            margin: auto;
+            margin-bottom : 20px ;
+            padding: 20px;
+            font-size: 25px;
+            border-radius: 22px;
+        }
+
+        form input {
+            font-size: 20px;
+            width: 98%;
+            margin: 10px 10px 10px 0px;
+            padding: 5px;
+        }
+
+        #btn {
+            font-size: 20px;
+            padding: 10px;
+            margin: 10px 10px 10px 0;
+            width: 50%;
+            border-radius: 15px;
+            /* border: 4px solid #ff9100; */
+            border: none;
+            background-color: #ffc47f;
+        }
+
+        #result{
+            width:50%;
+            margin: auto;
+            padding: 15px;
+            font-size: 20px;
+            border: 10px solid #ffb905;
+            border-radius: 22px;
+        }
+    </style>
+    <script>
+        function calculateBMI() {
+            let weight = parseFloat(document.getElementById("weight").value);
+            let height = parseFloat(document.getElementById("height").value);
+
+            if (weight <= 0 || height <= 0) {
+                document.getElementById("result").innerHTML = "Weight and height must be positive values.";
+                return;
+            }
+
+            let bmi = weight / (height * height);
+            document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(2);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <h1>BMI Calculator</h1>
+        <form>
+            <label for="weight">Weight (kg):</label>
+            <input type="text" id="weight" name="weight" required><br>
+
+            <label for="height">Height (m):</label>
+            <input type="text" id="height" name="height" required><br>
+
+            <input type="button" value="Calculate BMI" onclick="calculateBMI()" id="btn"><br>
+
+        </form>
+        <div id="result">
+            <h3>Result will be displayed here</h3>
+        </div>
+
+    </div>
+</body>
+</html>
